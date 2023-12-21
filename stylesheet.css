@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
+
+/*  Default properties provided in the root selector */
+:root {
+  --color-primary: #f0e68c;
+  --color-secondary: #d14836;
+  --color-accent: #8e44ad;
+  --color-link-text: #49c5b6;
+  --color-body: #e1e1e1;
+  --color-border: #c6c6c6;
+  --color-paragraphs: #666666;
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  font-family: "Raleway", sans-serif;
+}
+
+body {
+  margin: 0px;
+  background-color: #c6c6c6;
+}
+
+#grid-container {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: 100px 1fr 2fr 100px;
+  grid-template-areas: "header header header header" "nav nav nav nav" ". side-bar card-container .";
+}
+
+.nav {
+  grid-area: nav;
+  padding: 30px;
+  background-color: #d14836;
+  box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.nav > * {
+  color: #49c5b6;
+  text-decoration: none;
+  font-weight: bolder;
+}
+
+#reset-button {
+  border-color: #49c5b6;
+  background-color: transparent;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+}
+
+.header {
+  grid-area: header;
+  color: #d14836;
+  font-weight: bolder;
+  text-align: center;
+  padding: 40px;
+}
+
+.side-bar {
+  grid-area: side-bar;
+  box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.side-bar > * {
+  background-color: #8e44ad;
+  font-size: 0.9em;
+  color: #49c5b6;
+  text-decoration: none;
+  border-radius: 10px;
+  margin: 40px;
+  padding: 20px;
+}
+
+.card-container {
+  grid-area: card-container;
+  margin: 10px 3px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card,
+.header,
+.side-bar {
+  background-color: #f0e68c;
+}
+
+.card {
+  width: 240px;
+  border-radius: 10px;
+  box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+}
+
+.card img {
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card h2 {
+  padding: 0px 15px;
+}
+
+.card p {
+  color: #666666;
+  padding: 0px 15px 70px;
+  font-size: 1em;
+}
+
+.clicked {
+  background-color: hotpink;
+}
+
+@media screen and (max-width: 1025px) {
+  #grid-container {
+    grid-template-rows: auto auto auto auto;
+    grid-template-columns: 1fr;
+    grid-template-areas: "header" "nav" "card-container" "side-bar";
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card {
+    width: 100%;
+  }
+
+  .nav {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
